@@ -1,19 +1,32 @@
-# Fil: src/backend/api.py
-
-# 1. Importera nödvändiga bibliotek
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import joblib
 import pandas as pd
-import numpy as np # <-- VIKTIGT: Importera numpy
+import numpy as np
+from pathlib import Path
 
-# 2. Ladda in det rena datasetet
+
+script_dir = Path(__file__).parent
+
+data_path = script_dir.parent.parent / "data" / "taxi_trip_clean.csv"
+
+
+model_path = script_dir.parent / "model_development" / "taxi_price_model.pkl" 
+
+
 try:
-    df = pd.read_csv("data/taxi_trip_clean.csv")
+    df = pd.read_csv(data_path)
 except FileNotFoundError:
+    print(f"FEL: Kunde inte hitta CSV-filen på sökvägen: {data_path}")
     df = None
 
-# 3. Definiera Pydantic-modell för prediktions-indata
+try:
+    pipeline = joblib.load(model_path)
+    print("INFO: Modellfilen laddades framgångsrikt.") 
+except FileNotFoundError:
+    print(f"FEL: Kunde inte hitta modellfilen på sökvägen: {model_path}")
+    pipeline = None
+
 class TripFeatures(BaseModel):
     Trip_Distance_km: float
     Passenger_Count: int
@@ -22,20 +35,12 @@ class TripFeatures(BaseModel):
     Per_Minute_Rate: float
     Trip_Duration_Minutes: float
 
-# 4. Ladda den tränade pipelinen
-try:
-    pipeline = joblib.load("src/model_development/taxi_price_pipeline.pkl")
-except FileNotFoundError:
-    pipeline = None 
-
-# 5. Skapa FastAPI-appen
 app = FastAPI(
     title="Taxi Price Prediction API",
     description="Ett API för att förutsäga taxipriser och servera träningsdata.",
     version="1.1"
 )
 
-# 6. Endpoints
 @app.get("/")
 def root():
     return {"message": "Welcome to the Taxi Price Prediction API"}
@@ -45,7 +50,6 @@ def get_data_head(n: int = 10):
     if df is None:
         raise HTTPException(status_code=404, detail="Dataset file not found.")
     
-    # NY RAD: Ersätt NaN med None, som är JSON-kompatibelt (blir null)
     return df.head(n).replace({np.nan: None}).to_dict(orient="records")
 
 @app.get("/data/trip/{trip_id}")
@@ -56,13 +60,12 @@ def get_trip_by_id(trip_id: int):
     if trip_id not in df.index:
         raise HTTPException(status_code=404, detail=f"Trip with ID {trip_id} not found.")
         
-    # NY RAD: Ersätt NaN med None även här
     return df.loc[trip_id].replace({np.nan: None}).to_dict()
 
 @app.post("/predict")
 def predict(features: TripFeatures):
     if pipeline is None:
-        raise HTTPException(status_code=503, detail="Pipeline could not be loaded.")
+        raise HTTPException(status_code=503, detail="Pipeline could not be loaded. Check API server logs for errors.")
 
     input_dict = features.dict()
     input_data = pd.DataFrame([input_dict])
