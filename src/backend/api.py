@@ -5,27 +5,24 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-
 script_dir = Path(__file__).parent
-
 data_path = script_dir.parent.parent / "data" / "taxi_trip_clean.csv"
-
-
 model_path = script_dir.parent / "model_development" / "taxi_price_model.pkl" 
 
-
+# AI-assisted code: My original try-except structure was modified by the AI
 try:
     df = pd.read_csv(data_path)
 except FileNotFoundError:
-    print(f"FEL: Kunde inte hitta CSV-filen på sökvägen: {data_path}")
+    print(f"ERROR: Could not find the CSV file at path: {data_path}")
     df = None
 
 try:
     pipeline = joblib.load(model_path)
-    print("INFO: Modellfilen laddades framgångsrikt.") 
+    print("INFO: Model file loaded successfully.") 
 except FileNotFoundError:
-    print(f"FEL: Kunde inte hitta modellfilen på sökvägen: {model_path}")
+    print(f"ERROR: Could not find the model file at path: {model_path}")
     pipeline = None
+
 
 class TripFeatures(BaseModel):
     Trip_Distance_km: float
@@ -37,7 +34,7 @@ class TripFeatures(BaseModel):
 
 app = FastAPI(
     title="Taxi Price Prediction API",
-    description="Ett API för att förutsäga taxipriser och servera träningsdata.",
+    description="An API to predict taxi prices and serve training data.",
     version="1.1"
 )
 
