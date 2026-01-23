@@ -24,6 +24,7 @@ except FileNotFoundError:
     pipeline = None
 
 
+# Uppdaterad Pydantic-modell med ett realistiskt exempel
 class TripFeatures(BaseModel):
     Trip_Distance_km: float
     Passenger_Count: int
@@ -32,16 +33,29 @@ class TripFeatures(BaseModel):
     Per_Minute_Rate: float
     Trip_Duration_Minutes: float
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "Trip_Distance_km": 10.5,
+                "Passenger_Count": 1,
+                "Base_Fare": 50.0,
+                "Per_Km_Rate": 18.0,
+                "Per_Minute_Rate": 7.0,
+                "Trip_Duration_Minutes": 15.0
+            }
+        }
+
+
 app = FastAPI(
     title="Taxi Price Prediction API",
     description="An API to predict taxi prices and serve training data.",
     version="1.1"
 )
-
 @app.get("/")
 def root():
     return {"message": "Welcome to the Taxi Price Prediction API"}
 
+# AI assisted code: Added error handling for missing dataset file
 @app.get("/data/head")
 def get_data_head(n: int = 10):
     if df is None:
