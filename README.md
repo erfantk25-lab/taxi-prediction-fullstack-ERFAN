@@ -144,7 +144,7 @@ GitHub Actions runs model training and API smoke tests on pushes and pull reques
 ```bash
 python -m pip install -r requirements.txt
 python -m src.model_development.train_model
-pytest -q
+python -m pytest -q
 ```
 
 The frontend API address can be overridden with the `TAXI_API_URL` environment variable. The default is `http://127.0.0.1:8000/predict`.
