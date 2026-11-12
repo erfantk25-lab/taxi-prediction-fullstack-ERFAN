@@ -33,4 +33,4 @@ jobs:
         run: python -m src.model_development.train_model
 
       - name: Run API tests
-        run: pytest -q
+        run: python -m pytest -q
