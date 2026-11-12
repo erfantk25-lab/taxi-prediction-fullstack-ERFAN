@@ -137,6 +137,18 @@ ORS_API_KEY = "YOUR_OPENROUTESERVICE_API_KEY"
 
 Get an API key from [OpenRouteService](https://openrouteservice.org/). The real `secrets.toml` file is excluded by `.gitignore`; never commit API keys.
 
+## Automated checks
+
+GitHub Actions runs model training and API smoke tests on pushes and pull requests. Run the same checks locally:
+
+```bash
+python -m pip install -r requirements.txt
+python -m src.model_development.train_model
+pytest -q
+```
+
+The frontend API address can be overridden with the `TAXI_API_URL` environment variable. The default is `http://127.0.0.1:8000/predict`.
+
 ## Run the application
 
 Start the backend in terminal 1:
