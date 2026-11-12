@@ -1,66 +1,197 @@
-# taxi-prediction-fullstack-ERFAN
+# Taxi Price Prediction – Full-Stack Machine Learning Application
 
+An individual portfolio project that combines a machine-learning regression model, a FastAPI prediction service, and a Streamlit interface. A user enters two addresses, the application retrieves a driving route, and the backend predicts a taxi fare using the route distance, estimated duration, passenger count, and fare rates.
 
+## Project overview
 
+- **Frontend:** Streamlit interface with an interactive Folium route map.
+- **Routing and geocoding:** OpenRouteService.
+- **Backend:** FastAPI REST API.
+- **Model:** Scikit-learn regression pipeline with missing-value imputation and a Random Forest regressor (selected automatically from the evaluated candidates).
+- **Persistence:** Joblib model artifact and JSON training metadata.
 
+## Architecture
 
-# Backend API Documentation
+```text
+User
+ |
+ v
+Streamlit frontend
+ |  geocoding + driving directions
+ v
+OpenRouteService
+ |
+ | distance + duration + fare parameters
+ v
+FastAPI /predict
+ |
+ v
+Scikit-learn pipeline
+ |
+ v
+Predicted taxi price (SEK)
+```
 
-The project's backend is a standalone API built with FastAPI. A major advantage of using FastAPI is that it automatically generates interactive API documentation from the code, as shown in this screenshot (accessible at the /docs endpoint).
+The frontend and API run as separate processes. The frontend sends the calculated trip features to the backend; the backend is responsible for model inference.
 
-This serves as a clear "contract" for how the frontend—or any other client—should communicate with the backend. It clearly lists all available endpoints, such as:
+## Model training and evaluation
 
-POST /predict: For getting a price prediction.
+The training script is the reproducible source of truth:
 
-GET /data/head: For retrieving sample training data.
+```bash
+python -m src.model_development.train_model
+```
 
-GET /data/trip/{trip_id}: For fetching a specific trip by its ID.
+It reads `data/taxi_trip_clean.csv`, uses an 80/20 train/test split with `random_state=42`, evaluates Linear Regression, Decision Tree, and Random Forest models, and compares them using RMSE. Each candidate is wrapped in a pipeline containing a mean-value `SimpleImputer`. The best candidate is then retrained on the complete dataset.
 
-This proves that the application follows the required architecture, with a well-defined and independent backend service that is completely separate from the frontend.
+The script exports:
 
-## See: screenshots/Image 1.png
+- `src/model_development/taxi_price_model.pkl` – the fitted preprocessing and regression pipeline loaded by the API.
+- `src/model_development/model_metadata.json` – selected model, feature names, candidate RMSE scores, training row count, and scikit-learn version.
 
+The notebook `testing_models.ipynb` documents the original experiments. Its previously recorded test RMSE values were:
 
+| Model | Recorded RMSE |
+|---|---:|
+| Linear Regression | 16.9534 |
+| Decision Tree | 19.1344 |
+| Random Forest | 11.3966 |
 
-## Main Application View
+These are historical notebook results, not a claim that the current training script has been executed in every environment. Run the script to generate fresh scores and metadata.
 
-This is the primary user interface of the Taxi Price Prediction application, built with Streamlit. The screenshot below shows a complete, successful user interaction. The application has:
-Fetched Route Data: It sends the addresses to the external Openrouteservice API. The returned route is then visualized as a blue line on the interactive Folium map.
-Extracted Trip Details: Key information like the total distance (9.50 km) and estimated travel time (13.18 minutes) is extracted from the API response and displayed to the user.
-Called the Backend API: This new data is sent to our own FastAPI backend's /predict endpoint.
-Displayed the Final Price: The price predicted by the machine learning model is returned from the backend and shown in the green result box (28.17 SEK).
-This single view demonstrates the successful end-to-end integration of the frontend, backend, and the external mapping service.
-## See: screenshots/Image 2.png
+## Tech stack
 
+- Python 3.13
+- FastAPI and Uvicorn
+- Streamlit
+- Pandas and NumPy
+- Scikit-learn
+- Joblib
+- Folium and Streamlit-Folium
+- OpenRouteService
+- Requests
 
-## Running the Application (System Architecture)
+## Repository structure
 
-The project is built on a fullstack architecture with a separate backend and frontend, which must be run as two independent processes in separate terminals.
-1. Backend Server (Left Image): The first terminal runs the FastAPI backend using uvicorn. The logs confirm that the server has started successfully, the machine learning model has been loaded (INFO: Model file loaded successfully), and it is ready to accept requests.
-2. Frontend Server (Right Image): The second terminal runs the Streamlit frontend using streamlit run. The output provides the local URL (http://localhost:8501) where the user can access and interact with the web application in their browser.
-This setup demonstrates the decoupled nature of the application, which is a core concept in modern MLOps and web development.
+```text
+.
+├── data/
+│   └── taxi_trip_clean.csv
+├── src/
+│   ├── backend/
+│   │   └── api.py
+│   ├── frontend/
+│   │   └── dashboard.py
+│   └── model_development/
+│       ├── testing_models.ipynb
+│       ├── train_model.py
+│       ├── taxi_price_model.pkl
+│       └── model_metadata.json
+├── screenshots/
+├── .streamlit/
+│   └── secrets.toml.example
+├── requirements.txt
+└── README.md
+```
 
-## See: screenshots/Image 3.png and screenshots/Image 4.png
+Model files are generated by the training script. If they are not present in a fresh clone, run the training step before starting the API.
 
+## Setup
 
+Python 3.13 is recommended to match the notebook environment.
 
-## Testing the Data Endpoints
+```bash
+git clone https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN.git
+cd taxi-prediction-fullstack-ERFAN
 
-Beyond its prediction capabilities, the API also includes utility endpoints for inspecting the training data. This screenshot shows the /data/head endpoint being tested.
-A parameter n is set to 120 to request the first 120 rows of the dataset.
-The "Execute" button is clicked, sending a GET request to the server.
-The server successfully responds with a 200 OK status and a JSON array containing the requested trip data.
-This functionality is useful for debugging, verification, or for any client application that might need to display sample data.
-## See: screenshots/Image 5.png
+python -m venv .venv
+```
 
+Activate the environment:
 
+**Windows PowerShell**
+```powershell
+.venv\Scripts\Activate.ps1
+```
 
-## Testing the /predict Endpoint
+**macOS / Linux**
+```bash
+source .venv/bin/activate
+```
 
-The interactive documentation allows for direct testing of each endpoint, independent of the frontend. This screenshot shows the /predict endpoint being tested using the "Try it out" feature.
-A JSON object with sample trip data is provided as the Request body.
-The "Execute" button is clicked, sending a POST request to the server.
-The server successfully responds with a 200 OK status code and a JSON object containing the predicted_price (28.19 in this case).
-This confirms that the backend logic and the machine learning model are working correctly and can be tested and verified on their own.
+Install dependencies and train/export the model:
 
-## See: screenshots/Image 6.png
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python -m src.model_development.train_model
+```
+
+## OpenRouteService API key
+
+Create a file named `.streamlit/secrets.toml`:
+
+```toml
+ORS_API_KEY = "YOUR_OPENROUTESERVICE_API_KEY"
+```
+
+Get an API key from [OpenRouteService](https://openrouteservice.org/). The real `secrets.toml` file is excluded by `.gitignore`; never commit API keys.
+
+## Run the application
+
+Start the backend in terminal 1:
+
+```bash
+uvicorn src.backend.api:app --reload
+```
+
+Start the frontend in terminal 2:
+
+```bash
+streamlit run src/frontend/dashboard.py
+```
+
+Open the Streamlit URL printed in the terminal (normally http://localhost:8501).
+
+Interactive API documentation is available at http://127.0.0.1:8000/docs. The API health endpoint is http://127.0.0.1:8000/health.
+
+## API endpoints
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/` | API welcome message |
+| GET | `/health` | Model and dataset readiness |
+| GET | `/data/head?n=10` | First rows of the cleaned dataset |
+| GET | `/data/trip/{trip_id}` | Retrieve a row by DataFrame index |
+| POST | `/predict` | Predict a trip price |
+
+Example request body:
+
+```json
+{
+  "Trip_Distance_km": 10.5,
+  "Passenger_Count": 1,
+  "Base_Fare": 50.0,
+  "Per_Km_Rate": 18.0,
+  "Per_Minute_Rate": 7.0,
+  "Trip_Duration_Minutes": 15.0
+}
+```
+
+The response contains a `predicted_price` value in SEK.
+
+## Screenshots
+
+Screenshots from the running application and API documentation are available in the `screenshots/` directory.
+
+## Engineering notes
+
+- Training and inference use the same ordered feature list.
+- Preprocessing is packaged with the estimator in one scikit-learn pipeline.
+- The API checks the model's feature names and turns model-load failures into a clear degraded health state.
+- The training script writes model metadata so the artifact can be traced to its training configuration.
+- Joblib model files are pickle-based. Only load model artifacts from a trusted source, and keep training and serving dependency versions aligned.
+
+## Project type
+
+**Individual project** – designed and implemented as a full-stack machine-learning portfolio project.
