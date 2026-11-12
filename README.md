@@ -1,5 +1,7 @@
 # Taxi Price Prediction – Full-Stack Machine Learning Application
 
+[![CI](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml) [View all workflow runs](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions)
+
 An individual portfolio project that combines a machine-learning regression model, a FastAPI prediction service, and a Streamlit interface. A user enters two addresses, the application retrieves a driving route, and the backend predicts a taxi fare using the route distance, estimated duration, passenger count, and fare rates.
 
 ## Project overview
@@ -190,7 +192,20 @@ Example request body:
 }
 ```
 
-The response contains a `predicted_price` value in SEK.
+The response contains a `predicted_price` value in SEK. The request below can be sent directly to the local API after model training and backend startup:
+
+```bash
+curl -X POST http://127.0.0.1:8000/predict \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "Trip_Distance_km": 10.5,
+    "Passenger_Count": 1,
+    "Base_Fare": 50.0,
+    "Per_Km_Rate": 18.0,
+    "Per_Minute_Rate": 7.0,
+    "Trip_Duration_Minutes": 15.0
+  }'
+```
 
 ## Screenshots
 
