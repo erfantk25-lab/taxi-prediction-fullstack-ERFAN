@@ -64,3 +64,7 @@ The server successfully responds with a 200 OK status code and a JSON object con
 This confirms that the backend logic and the machine learning model are working correctly and can be tested and verified on their own.
 
 ## See: screenshots/Image 6.png
+
+## Documentation
+
+- [Architecture overview](docs/architecture.md)
