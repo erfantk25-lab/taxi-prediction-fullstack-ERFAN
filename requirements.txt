@@ -15,3 +15,7 @@ joblib==1.5.3
 folium
 streamlit-folium
 openrouteservice
+
+# Automated tests
+pytest
+httpx
