@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import os
 import folium
 from streamlit_folium import st_folium
 import openrouteservice
@@ -22,7 +23,7 @@ except Exception:
     st.error("Could not connect to Openrouteservice. Please check your API key in .streamlit/secrets.toml.")
     ors_client = None
 
-API_URL = "http://127.0.0.1:8000/predict"
+API_URL = os.getenv("TAXI_API_URL", "http://127.0.0.1:8000/predict")
 
 col1, col2 = st.columns([1, 2]) 
 
@@ -72,7 +73,7 @@ if predict_button and ors_client:
                 "Per_Minute_Rate": per_minute_rate,
                 "Trip_Duration_Minutes": duration_min
             }
-            response = requests.post(API_URL, json=payload)
+            response = requests.post(API_URL, json=payload, timeout=30)
             response.raise_for_status() 
             prediction = response.json()
             predicted_price = prediction.get('predicted_price')
