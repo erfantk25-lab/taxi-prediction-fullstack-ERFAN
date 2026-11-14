@@ -1,25 +1,35 @@
-# Taxi Price Prediction – Full-Stack Machine Learning Application
-
-[![CI](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml) [View all workflow runs](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions)
+# Taxi Price Prediction — Full-Stack Machine Learning
 
 <div align="center">
 
-<img src="assets/ef-taxi-project-banner-v3.svg" alt="EF-branded taxi fare prediction project banner" width="100%"/>
+<a href="https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN"><img src="assets/ef-taxi-project-banner-v3.svg" alt="EF-branded taxi fare prediction project banner" width="100%"/></a>
 
-![Python](https://img.shields.io/badge/Python-071B31?style=for-the-badge&logo=python&logoColor=00DFFF) ![FastAPI](https://img.shields.io/badge/FastAPI-071B31?style=for-the-badge&logo=fastapi&logoColor=00DFFF) ![Streamlit](https://img.shields.io/badge/Streamlit-071B31?style=for-the-badge&logo=streamlit&logoColor=00DFFF) ![scikit--learn](https://img.shields.io/badge/scikit--learn-071B31?style=for-the-badge&logo=scikitlearn&logoColor=00DFFF)
+[![CI](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/Python-071B31?style=for-the-badge&logo=python&logoColor=00DFFF)](https://www.python.org/)
+![FastAPI](https://img.shields.io/badge/FastAPI-071B31?style=for-the-badge&logo=fastapi&logoColor=00DFFF)
+![Streamlit](https://img.shields.io/badge/Streamlit-071B31?style=for-the-badge&logo=streamlit&logoColor=00DFFF)
+![scikit--learn](https://img.shields.io/badge/scikit--learn-071B31?style=for-the-badge&logo=scikitlearn&logoColor=00DFFF)
+
+**Individual portfolio project · Machine Learning · API · Interactive application**
 
 </div>
 
+An individual portfolio project that combines a machine-learning regression model, a FastAPI prediction service, and a Streamlit interface. A user enters two addresses, the application retrieves a driving route, and the backend predicts a taxi fare using route distance, estimated duration, passenger count, and fare rates.
 
-An individual portfolio project that combines a machine-learning regression model, a FastAPI prediction service, and a Streamlit interface. A user enters two addresses, the application retrieves a driving route, and the backend predicts a taxi fare using the route distance, estimated duration, passenger count, and fare rates.
+## Quick navigation
+
+[Overview](#project-overview) · [Architecture](#architecture) · [Model](#model-training-and-evaluation) · [Setup](#setup) · [Run](#run-the-application) · [API](#api-reference) · [Engineering notes](#engineering-notes)
 
 ## Project overview
 
-- **Frontend:** Streamlit interface with an interactive Folium route map.
-- **Routing and geocoding:** OpenRouteService.
-- **Backend:** FastAPI REST API.
-- **Model:** Scikit-learn regression pipeline with missing-value imputation and a Random Forest regressor (selected automatically from the evaluated candidates).
-- **Persistence:** Joblib model artifact and JSON training metadata.
+| Component | Responsibility |
+|---|---|
+| **Streamlit** | User interface and trip input |
+| **OpenRouteService** | Geocoding and driving-route information |
+| **FastAPI** | REST API for prediction and health checks |
+| **scikit-learn** | Regression pipeline and fare prediction |
+| **Folium** | Interactive route map |
+| **Joblib / JSON** | Persisted model and training metadata |
 
 ## Architecture
 
@@ -27,9 +37,9 @@ An individual portfolio project that combines a machine-learning regression mode
 <img src="assets/taxi-architecture.svg" width="100%" alt="EF-branded architecture diagram showing Streamlit, OpenRouteService, FastAPI, scikit-learn and the predicted fare"/>
 </div>
 
-The frontend obtains route information and sends trip features to the API. FastAPI handles inference with the saved scikit-learn pipeline, then returns the predicted price to the Streamlit application. The Folium map displays the route.
+The frontend obtains route information and sends trip features to the API. FastAPI performs inference with the saved scikit-learn pipeline, then returns the predicted price to the Streamlit application. Folium displays the route.
 
-The frontend and API run as separate processes. The frontend sends the calculated trip features to the backend; the backend is responsible for model inference.
+The frontend and API run as separate processes. The frontend sends calculated trip features to the backend; the backend is responsible for model inference.
 
 ## Model training and evaluation
 
@@ -43,8 +53,8 @@ It reads `data/taxi_trip_clean.csv`, uses an 80/20 train/test split with `random
 
 The script exports:
 
-- `src/model_development/taxi_price_model.pkl` – the fitted preprocessing and regression pipeline loaded by the API.
-- `src/model_development/model_metadata.json` – selected model, feature names, candidate RMSE scores, training row count, and scikit-learn version.
+- `src/model_development/taxi_price_model.pkl` — fitted preprocessing and regression pipeline loaded by the API.
+- `src/model_development/model_metadata.json` — selected model, feature names, candidate RMSE scores, training row count, and scikit-learn version.
 
 The notebook `testing_models.ipynb` documents the original experiments. Its previously recorded test RMSE values were:
 
@@ -54,7 +64,7 @@ The notebook `testing_models.ipynb` documents the original experiments. Its prev
 | Decision Tree | 19.1344 |
 | Random Forest | 11.3966 |
 
-These are historical notebook results, not a claim that the current training script has been executed in every environment. Run the script to generate fresh scores and metadata.
+These are historical notebook results, not a claim that the current training script has been executed in every environment. Run the training script to generate fresh scores and metadata.
 
 ## Tech stack
 
@@ -62,7 +72,7 @@ These are historical notebook results, not a claim that the current training scr
 - FastAPI and Uvicorn
 - Streamlit
 - Pandas and NumPy
-- Scikit-learn
+- scikit-learn
 - Joblib
 - Folium and Streamlit-Folium
 - OpenRouteService
@@ -164,7 +174,7 @@ Open the Streamlit URL printed in the terminal (normally http://localhost:8501).
 
 Interactive API documentation is available at http://127.0.0.1:8000/docs. The API health endpoint is http://127.0.0.1:8000/health.
 
-## API endpoints
+## API reference
 
 | Method | Endpoint | Purpose |
 |---|---|---|
@@ -190,8 +200,8 @@ Example request body:
 The response contains a `predicted_price` value in SEK. The request below can be sent directly to the local API after model training and backend startup:
 
 ```bash
-curl -X POST http://127.0.0.1:8000/predict \\
-  -H "Content-Type: application/json" \\
+curl -X POST http://127.0.0.1:8000/predict \
+  -H "Content-Type: application/json" \
   -d '{
     "Trip_Distance_km": 10.5,
     "Passenger_Count": 1,
@@ -216,4 +226,12 @@ Screenshots from the running application and API documentation are available in 
 
 ## Project type
 
-**Individual project** – designed and implemented as a full-stack machine-learning portfolio project.
+**Individual project** — designed and implemented as a full-stack machine-learning portfolio project.
+
+---
+
+<div align="center">
+
+[← Back to my GitHub profile](https://github.com/erfantk25-lab) · [Portfolio](https://erfantk25-lab.github.io/)
+
+</div>
