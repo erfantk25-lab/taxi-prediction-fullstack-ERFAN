@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="550" viewBox="0 0 1600 550" role="img" aria-labelledby="title desc">
+<title id="title">TAXI PRICE PREDICTION — Erfan Tahmasebi</title>
+<desc id="desc">Project banner in the same visual identity as Erfan Tahmasebi's GitHub profile: midnight navy, electric cyan, deep blue, ET monogram and a technical workflow.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071426"/><stop offset=".62" stop-color="#0D2036"/><stop offset="1" stop-color="#102B49"/></linearGradient>
+ <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#42D9F5"/><stop offset="1" stop-color="#1769AA"/></linearGradient>
+ <linearGradient id="letter" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#B8D6E8"/></linearGradient>
+ <radialGradient id="halo"><stop stop-color="#42D9F5" stop-opacity=".2"/><stop offset="1" stop-color="#42D9F5" stop-opacity="0"/></radialGradient>
+ <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#8CA3B8" stroke-opacity=".09"/></pattern>
+ <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1600" height="550" rx="28" fill="url(#bg)"/>
+<rect width="1600" height="550" rx="28" fill="url(#grid)"/>
+<ellipse cx="1320" cy="260" rx="430" ry="330" fill="url(#halo)"/>
+<path d="M0 450C330 375 530 520 850 440S1320 370 1600 430" fill="none" stroke="#1769AA" stroke-opacity=".22" stroke-width="2"/>
+<g transform="translate(74 145)">
+ <rect width="190" height="190" rx="44" fill="#071426" stroke="url(#edge)" stroke-width="4"/>
+ <path d="M32 43H96V63H54V82H89V102H54V126H96V147H32Z" fill="url(#letter)"/>
+ <path d="M105 43H160V63H142V147H119V63H105Z" fill="#42D9F5"/>
+ <path d="M30 162H160" stroke="#1769AA" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="162" cy="27" r="7" fill="#36D399" filter="url(#glow)"/>
+</g>
+<path d="M305 120V360" stroke="url(#edge)" stroke-width="3"/>
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+ <text x="350" y="180" fill="#F2F7FC" font-size="58" font-weight="750" letter-spacing="-1.5">TAXI PRICE PREDICTION</text>
+ <text x="354" y="235" fill="#8CA3B8" font-size="23" font-weight="650" letter-spacing="2">Full-stack machine learning application</text>
+ <rect x="354" y="263" width="600" height="3" rx="2" fill="url(#edge)"/>
+ <text x="354" y="315" fill="#42D9F5" font-size="17" font-weight="700" letter-spacing="3">ERFAN TAHMASEBI · PROJECT SHOWCASE</text>
+ <text x="354" y="365" fill="#8CA3B8" font-size="17" letter-spacing="1.2">ROUTE DATA · REGRESSION · INTERACTIVE APP</text>
+</g>
+<g transform="translate(1080 105)" font-family="Inter,Segoe UI,Arial,sans-serif">
+ <text x="0" y="0" fill="#8CA3B8" font-size="13" font-weight="700" letter-spacing="3">ENGINEERING WORKFLOW</text>
+ <path d="M20 98H430" stroke="url(#edge)" stroke-width="2" stroke-dasharray="5 8"/>
+ <g fill="#0D2036" stroke="#42D9F5" stroke-opacity=".75" stroke-width="1.5">
+  <rect x="0" y="48" width="96" height="108" rx="14"/><rect x="112" y="48" width="96" height="108" rx="14"/><rect x="224" y="48" width="96" height="108" rx="14"/><rect x="336" y="48" width="96" height="108" rx="14"/>
+ </g>
+ <g fill="none" stroke="#42D9F5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <ellipse cx="48" cy="83" rx="17" ry="7"/><path d="M31 83V112C31 122 65 122 65 112V83M31 98C31 108 65 108 65 98"/>
+  <circle cx="160" cy="101" r="19"/><path d="M160 75V83M160 119V127M134 101H142M178 101H186"/>
+  <rect x="246" y="80" width="52" height="38" rx="5"/><path d="M254 91L264 99L254 107M272 108H290"/>
+  <circle cx="384" cy="99" r="22"/><path d="M373 99L381 107L397 89"/>
+ </g>
+ <g fill="#F2F7FC" font-size="11" font-weight="650" text-anchor="middle"><text x="48" y="143">ROUTE</text><text x="160" y="143">FEATURES</text><text x="272" y="143">PREDICT</text><text x="384" y="143">VISUALISE</text></g>
+ <path d="M0 195H432" stroke="#8CA3B8" stroke-opacity=".22"/>
+ <text x="0" y="228" fill="#8CA3B8" font-size="12" font-weight="700" letter-spacing="2">TECH STACK</text>
+ <g font-size="13" font-weight="600" text-anchor="middle">
+  <g fill="#0D2036" stroke="#1769AA"><rect x="0" y="246" width="96" height="34" rx="8"/><rect x="106" y="246" width="96" height="34" rx="8"/><rect x="212" y="246" width="96" height="34" rx="8"/><rect x="318" y="246" width="114" height="34" rx="8"/></g>
+  <g fill="#F2F7FC"><text x="48" y="268">Python</text><text x="154" y="268">FastAPI</text><text x="260" y="268">Streamlit</text><text x="375" y="268">sklearn</text></g>
+  <g fill="#0D2036" stroke="#1769AA"><rect x="0" y="292" width="130" height="34" rx="8"/><rect x="140" y="292" width="130" height="34" rx="8"/><rect x="280" y="292" width="152" height="34" rx="8"/></g>
+  <g fill="#F2F7FC"><text x="65" y="314">Folium</text><text x="205" y="314">Joblib</text><text x="356" y="314">ORS API</text></g>
+ </g>
+</g>
+<g transform="translate(74 455)" font-family="Inter,Segoe UI,Arial,sans-serif">
+ <rect width="470" height="54" rx="12" fill="#0D2036" stroke="#36D399" stroke-opacity=".65"/>
+ <circle cx="24" cy="27" r="6" fill="#36D399" filter="url(#glow)"/>
+ <text x="44" y="22" fill="#36D399" font-size="12" font-weight="700" letter-spacing="2">BUILD. AUTOMATE. DEPLOY. IMPROVE.</text>
+ <text x="44" y="42" fill="#F2F7FC" font-size="14">Erfan Tahmasebi · MLOps Engineering</text>
+</g>
+<text x="1530" y="505" text-anchor="end" fill="#8CA3B8" fill-opacity=".7" font-family="monospace" font-size="12" letter-spacing="2">ERFANTK25-LAB</text>
+</svg>
