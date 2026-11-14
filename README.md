@@ -4,7 +4,7 @@
 
 <div align="center">
 
-<img src="assets/ef-taxi-project-banner.svg" alt="EF-branded taxi fare prediction project banner" width="100%"/>
+<img src="assets/ef-taxi-project-banner-v2.svg" alt="EF-branded taxi fare prediction project banner" width="100%"/>
 
 ![Python](https://img.shields.io/badge/Python-071B31?style=for-the-badge&logo=python&logoColor=00DFFF) ![FastAPI](https://img.shields.io/badge/FastAPI-071B31?style=for-the-badge&logo=fastapi&logoColor=00DFFF) ![Streamlit](https://img.shields.io/badge/Streamlit-071B31?style=for-the-badge&logo=streamlit&logoColor=00DFFF) ![scikit--learn](https://img.shields.io/badge/scikit--learn-071B31?style=for-the-badge&logo=scikitlearn&logoColor=00DFFF)
 
