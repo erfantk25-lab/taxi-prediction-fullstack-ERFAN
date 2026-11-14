@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="550" viewBox="0 0 1600 550" role="img" aria-labelledby="title desc">
+<title id="title">Taxi Fare Prediction — Erfan Tahmasebi</title>
+<desc id="desc">Project banner designed directly from the original EF profile banner system: identical navy gradient, cyan accent, ET monogram, Inter typography, neural mesh, digital waves, pipeline cards and technology strip.</desc>
+
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#020916"/><stop offset=".56" stop-color="#061d36"/><stop offset="1" stop-color="#082b49"/></linearGradient>
+ <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#00dfff"/><stop offset="1" stop-color="#1389ff"/></linearGradient>
+ <radialGradient id="cloud"><stop stop-color="#0acbff" stop-opacity=".3"/><stop offset="1" stop-color="#0acbff" stop-opacity="0"/></radialGradient>
+ <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#8bcdf0" stroke-opacity=".09"/></pattern>
+ <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+
+<rect width="1600" height="550" rx="24" fill="url(#bg)"/><rect width="1600" height="550" rx="24" fill="url(#grid)"/>
+<ellipse cx="1430" cy="105" rx="280" ry="220" fill="url(#cloud)"/>
+
+<g stroke="#00bfff" fill="none" stroke-width="1.5" opacity=".55">
+ <path d="M1240 95L1300 45L1370 70L1420 24L1485 60L1545 28L1580 90L1550 145L1585 200L1515 245L1445 222L1395 260L1325 220L1280 170Z"/>
+ <path d="M1240 95L1370 70L1485 60L1580 90L1550 145L1515 245L1445 222L1325 220L1280 170L1420 24L1545 28L1395 260L1370 70L1550 145L1325 220L1485 60L1515 245L1240 95"/>
+</g>
+<g fill="#48dcff" filter="url(#glow)">
+ <circle cx="1240" cy="95" r="4"/><circle cx="1300" cy="45" r="4"/><circle cx="1370" cy="70" r="4"/><circle cx="1420" cy="24" r="4"/><circle cx="1485" cy="60" r="4"/><circle cx="1545" cy="28" r="4"/><circle cx="1580" cy="90" r="4"/><circle cx="1550" cy="145" r="4"/><circle cx="1585" cy="200" r="4"/><circle cx="1515" cy="245" r="4"/><circle cx="1445" cy="222" r="4"/><circle cx="1395" cy="260" r="4"/><circle cx="1325" cy="220" r="4"/><circle cx="1280" cy="170" r="4"/>
+</g>
+
+<g font-family="Inter,Segoe UI,Arial,sans-serif" font-weight="800">
+ <path d="M65 120H220L206 146H83L70 180H179L165 205H57L42 245H162L149 272H25L65 120Z" fill="#f5f9ff"/>
+ <path d="M174 120H240L229 146H211L167 272H133L177 146H157Z" fill="#09c8f4"/>
+</g>
+<path d="M270 85V285" stroke="#b9e7f8" stroke-width="2" opacity=".8"/>
+
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+ <text x="320" y="103" fill="#6fe7f3" font-size="17" font-weight="700" letter-spacing="4">PROJECT 02  /  INDIVIDUAL PROJECT</text>
+ <text x="320" y="160" fill="#f5f8ff" font-size="61" font-weight="750">Taxi Fare <tspan fill="#06c6f5">Prediction</tspan></text>
+ <text x="322" y="216" fill="#c5dced" font-size="34">Full-Stack Machine Learning Application</text>
+ <path d="M322 250H900" stroke="url(#cyan)" stroke-width="3" filter="url(#glow)"/>
+ <text x="322" y="300" fill="#d9eafa" font-size="24" letter-spacing="1.2">Route information transformed into a predicted fare.</text>
+</g>
+<g font-family="Inter,Segoe UI,Arial,sans-serif" text-anchor="middle">
+ <g fill="#071b31" stroke="#00cfff" stroke-width="2.5">
+  <rect x="850" y="160" width="112" height="118" rx="20"/><rect x="1000" y="160" width="112" height="118" rx="20"/><rect x="1150" y="160" width="112" height="118" rx="20"/><rect x="1300" y="160" width="112" height="118" rx="20"/>
+ </g>
+ 
+<g stroke="#05cafa" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+ <ellipse cx="906" cy="193" rx="23" ry="9"/><path d="M883 193V228C883 240 929 240 929 228V193M883 210C883 222 929 222 929 210"/>
+ <path d="M967 215H987M979 207L987 215L979 223"/>
+ <circle cx="1056" cy="211" r="23"/><circle cx="1056" cy="211" r="8"/><path d="M1056 179V187M1056 235V243M1024 211H1032M1080 211H1088M1033 188L1039 194M1073 228L1079 234M1079 188L1073 194M1039 228L1033 234"/>
+ <path d="M1117 215H1137M1129 207L1137 215L1129 223"/>
+ <path d="M1190 229C1190 204 1204 186 1223 180C1223 203 1210 221 1190 229Z"/><circle cx="1210" cy="199" r="5"/><path d="M1193 224L1179 235L1182 218M1200 229L1198 243L1210 230"/>
+ <path d="M1267 215H1287M1279 207L1287 215L1279 223"/>
+ <path d="M1324 186H1388V228H1324Z M1341 218V209H1350V218M1358 218V200H1367V218M1375 218V193H1384V218M1356 239H1370M1363 228V239"/>
+</g>
+ <g fill="#e8f6ff" font-size="19" font-weight="650"><text x="906" y="262">ROUTE</text><text x="1056" y="262">FEATURES</text><text x="1206" y="262">PREDICT</text><text x="1356" y="262">FARE</text></g>
+</g>
+
+<g fill="none" stroke="#00bce8" opacity=".65">
+ <path d="M0 374C190 300 280 445 480 370S760 340 950 390S1290 455 1600 350" stroke-width="2"/>
+ <path d="M0 403C200 330 300 470 500 395S760 365 960 420S1320 480 1600 380" stroke-width="1.5" opacity=".7"/>
+ <path d="M0 430C180 370 330 490 530 425S800 395 980 445S1320 505 1600 415" stroke-width="1.4" opacity=".45"/>
+</g>
+<g fill="#00c8f6" opacity=".55">
+ <circle cx="45" cy="390" r="2"/><circle cx="85" cy="372" r="2"/><circle cx="125" cy="382" r="2"/><circle cx="175" cy="402" r="2"/><circle cx="225" cy="395" r="2"/><circle cx="270" cy="420" r="2"/><circle cx="330" cy="411" r="2"/><circle cx="390" cy="392" r="2"/><circle cx="455" cy="410" r="2"/><circle cx="520" cy="390" r="2"/><circle cx="580" cy="415" r="2"/><circle cx="650" cy="400" r="2"/><circle cx="720" cy="420" r="2"/><circle cx="790" cy="410" r="2"/><circle cx="860" cy="430" r="2"/><circle cx="930" cy="415" r="2"/><circle cx="1000" cy="435" r="2"/><circle cx="1080" cy="420" r="2"/><circle cx="1160" cy="444" r="2"/><circle cx="1240" cy="430" r="2"/><circle cx="1320" cy="450" r="2"/><circle cx="1400" cy="420" r="2"/><circle cx="1480" cy="435" r="2"/><circle cx="1550" cy="410" r="2"/>
+</g>
+
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+ <g fill="#041a2e" stroke="#087eae" stroke-width="1.5">
+ <rect x="48" y="455" width="170" height="62" rx="30"/><rect x="230" y="455" width="190" height="62" rx="30"/><rect x="432" y="455" width="150" height="62" rx="30"/><rect x="594" y="455" width="170" height="62" rx="30"/><rect x="776" y="455" width="155" height="62" rx="30"/><rect x="943" y="455" width="190" height="62" rx="30"/><rect x="1145" y="455" width="210" height="62" rx="30"/><rect x="1367" y="455" width="180" height="62" rx="30"/>
+ </g>
+ <g fill="#ecf8ff" font-size="15.5" font-weight="650" text-anchor="middle"><text x="133" y="493">Python</text><text x="325" y="493">FastAPI</text><text x="507" y="493">Streamlit</text><text x="679" y="493">scikit-learn</text><text x="853.5" y="493">Folium</text><text x="1038" y="493">OpenRouteSvc</text><text x="1250" y="493">Pandas</text><text x="1457" y="493">Joblib</text></g>
+ <g fill="url(#cyan)"><circle cx="75" cy="486" r="5"/><circle cx="257" cy="486" r="5"/><circle cx="459" cy="486" r="5"/><circle cx="621" cy="486" r="5"/><circle cx="803" cy="486" r="5"/><circle cx="970" cy="486" r="5"/><circle cx="1172" cy="486" r="5"/><circle cx="1394" cy="486" r="5"/></g>
+</g>
+
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+ <rect x="1180" y="355" width="365" height="68" rx="34" fill="#06253b" stroke="#06cefa" stroke-width="2"/>
+ <circle cx="1220" cy="389" r="17" fill="none" stroke="#31d9ff" stroke-width="2"/>
+ <path d="M1211 389h18M1220 380v18" fill="none" stroke="#31d9ff" stroke-width="2.5" stroke-linecap="round"/>
+ <text x="1250" y="383" fill="#6ee9ff" font-size="14" font-weight="750" letter-spacing="1.5">PROJECT TYPE</text>
+ <text x="1250" y="404" fill="#f0f8ff" font-size="17" font-weight="650">INDIVIDUAL PROJECT</text>
+</g>
+<rect x="1" y="1" width="1598" height="548" rx="23" fill="none" stroke="#20c8f2" stroke-opacity=".35" stroke-width="2"/>
+</svg>
