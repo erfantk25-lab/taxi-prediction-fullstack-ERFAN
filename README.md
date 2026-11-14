@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<a href="https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN"><img src="assets/ef-taxi-project-banner-v3.svg" alt="EF-branded taxi fare prediction project banner" width="100%"/></a>
+<img src="assets/erfan-taxi-prediction-banner.svg" alt="Erfan Tahmasebi Taxi Price Prediction project banner" width="100%"/>
 
 [![CI](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-071B31?style=for-the-badge&logo=python&logoColor=00DFFF)](https://www.python.org/)
