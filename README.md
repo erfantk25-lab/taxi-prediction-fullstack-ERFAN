@@ -2,6 +2,15 @@
 
 [![CI](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml) [View all workflow runs](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions)
 
+<div align="center">
+
+<img src="assets/ef-taxi-project-banner.svg" width="100%" alt="EF-branded taxi fare prediction project banner"/>
+
+![Python](https://img.shields.io/badge/Python-071B31?style=for-the-badge&logo=python&logoColor=00DFFF) ![FastAPI](https://img.shields.io/badge/FastAPI-071B31?style=for-the-badge&logo=fastapi&logoColor=00DFFF) ![Streamlit](https://img.shields.io/badge/Streamlit-071B31?style=for-the-badge&logo=streamlit&logoColor=00DFFF) ![scikit--learn](https://img.shields.io/badge/scikit--learn-071B31?style=for-the-badge&logo=scikitlearn&logoColor=00DFFF)
+
+</div>
+
+
 An individual portfolio project that combines a machine-learning regression model, a FastAPI prediction service, and a Streamlit interface. A user enters two addresses, the application retrieves a driving route, and the backend predicts a taxi fare using the route distance, estimated duration, passenger count, and fare rates.
 
 ## Project overview
@@ -14,25 +23,11 @@ An individual portfolio project that combines a machine-learning regression mode
 
 ## Architecture
 
-```text
-User
- |
- v
-Streamlit frontend
- |  geocoding + driving directions
- v
-OpenRouteService
- |
- | distance + duration + fare parameters
- v
-FastAPI /predict
- |
- v
-Scikit-learn pipeline
- |
- v
-Predicted taxi price (SEK)
-```
+<div align="center">
+<img src="assets/taxi-architecture.svg" width="100%" alt="EF-branded architecture diagram showing Streamlit, OpenRouteService, FastAPI, scikit-learn and the predicted fare"/>
+</div>
+
+The frontend obtains route information and sends trip features to the API. FastAPI handles inference with the saved scikit-learn pipeline, then returns the predicted price to the Streamlit application. The Folium map displays the route.
 
 The frontend and API run as separate processes. The frontend sends the calculated trip features to the backend; the backend is responsible for model inference.
 
