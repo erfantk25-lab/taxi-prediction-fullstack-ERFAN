@@ -172,6 +172,33 @@ streamlit run src/frontend/dashboard.py
 
 Open the Streamlit URL printed in the terminal (normally http://localhost:8501).
 
+### Verify the backend without the frontend
+
+You can test the API independently of Streamlit. With the backend running, check that both the model and dataset loaded:
+
+```bash
+curl http://127.0.0.1:8000/health
+```
+
+A ready service returns `"status": "ok"`, `"model_loaded": true`, and `"dataset_loaded": true`. If the model is unavailable, the API reports a degraded state; run the training command from the Setup section and restart the backend.
+
+Send a test prediction:
+
+```bash
+curl -X POST http://127.0.0.1:8000/predict \
+  -H "Content-Type: application/json" \
+  -d '{
+    "Trip_Distance_km": 10.5,
+    "Passenger_Count": 1,
+    "Base_Fare": 50.0,
+    "Per_Km_Rate": 18.0,
+    "Per_Minute_Rate": 7.0,
+    "Trip_Duration_Minutes": 15.0
+  }'
+```
+
+The response contains a `predicted_price` value. The exact result depends on the model artifact generated from the training data.
+
 Interactive API documentation is available at http://127.0.0.1:8000/docs. The API health endpoint is http://127.0.0.1:8000/health.
 
 ## API reference
