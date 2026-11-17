@@ -5,15 +5,19 @@
 <img src="assets/erfan-taxi-price-prediction-banner-v2.svg" alt="Erfan Tahmasebi Taxi Price Prediction project banner" width="100%"/>
 
 [![CI](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/badge/Python-071B31?style=for-the-badge&logo=python&logoColor=00DFFF)](https://www.python.org/)
-![FastAPI](https://img.shields.io/badge/FastAPI-071B31?style=for-the-badge&logo=fastapi&logoColor=00DFFF)
-![Streamlit](https://img.shields.io/badge/Streamlit-071B31?style=for-the-badge&logo=streamlit&logoColor=00DFFF)
-![scikit--learn](https://img.shields.io/badge/scikit--learn-071B31?style=for-the-badge&logo=scikitlearn&logoColor=00DFFF)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-071B31?style=for-the-badge&logo=githubactions&logoColor=2088FF)
-![Pandas](https://img.shields.io/badge/Pandas-071B31?style=for-the-badge&logo=pandas&logoColor=150458)
-![NumPy](https://img.shields.io/badge/NumPy-071B31?style=for-the-badge&logo=numpy&logoColor=013243)
-![Folium](https://img.shields.io/badge/Folium-071B31?style=for-the-badge&logo=leaflet&logoColor=7BAE4F)
-![OpenRouteService](https://img.shields.io/badge/OpenRouteService-071B31?style=for-the-badge&logo=openstreetmap&logoColor=7EBC6F)
+<div align="center">
+
+  <a href="https://www.python.org/" title="Python"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" height="42"></a>
+  <a href="https://fastapi.tiangolo.com/" title="FastAPI"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" height="42"></a>
+  <a href="https://streamlit.io/" title="Streamlit"><img src="https://cdn.simpleicons.org/streamlit/FF4B4B" alt="Streamlit" height="42"></a>
+  <a href="https://scikit-learn.org/" title="scikit-learn"><img src="https://cdn.simpleicons.org/scikitlearn/F7931E" alt="scikit-learn" height="42"></a>
+  <a href="https://github.com/features/actions" title="GitHub Actions"><img src="https://cdn.simpleicons.org/githubactions/2088FF" alt="GitHub Actions" height="42"></a>
+  <a href="https://pandas.pydata.org/" title="Pandas"><img src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas" height="42"></a>
+  <a href="https://numpy.org/" title="NumPy"><img src="https://cdn.simpleicons.org/numpy/013243" alt="NumPy" height="42"></a>
+  <a href="https://python-visualization.github.io/folium/" title="Folium / Leaflet"><img src="https://cdn.simpleicons.org/leaflet/199900" alt="Folium / Leaflet" height="42"></a>
+  <a href="https://openrouteservice.org/" title="OpenRouteService"><img src="https://cdn.simpleicons.org/openstreetmap/7EBC6F" alt="OpenRouteService" height="42"></a>
+
+</div>
 
 **Individual portfolio project · Machine Learning · API · Interactive application**
 
