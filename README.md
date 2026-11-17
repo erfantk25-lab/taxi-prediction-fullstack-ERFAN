@@ -9,6 +9,11 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-071B31?style=for-the-badge&logo=fastapi&logoColor=00DFFF)
 ![Streamlit](https://img.shields.io/badge/Streamlit-071B31?style=for-the-badge&logo=streamlit&logoColor=00DFFF)
 ![scikit--learn](https://img.shields.io/badge/scikit--learn-071B31?style=for-the-badge&logo=scikitlearn&logoColor=00DFFF)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-071B31?style=for-the-badge&logo=githubactions&logoColor=2088FF)
+![Pandas](https://img.shields.io/badge/Pandas-071B31?style=for-the-badge&logo=pandas&logoColor=150458)
+![NumPy](https://img.shields.io/badge/NumPy-071B31?style=for-the-badge&logo=numpy&logoColor=013243)
+![Folium](https://img.shields.io/badge/Folium-071B31?style=for-the-badge&logo=leaflet&logoColor=7BAE4F)
+![OpenRouteService](https://img.shields.io/badge/OpenRouteService-071B31?style=for-the-badge&logo=openstreetmap&logoColor=7EBC6F)
 
 **Individual portfolio project · Machine Learning · API · Interactive application**
 
