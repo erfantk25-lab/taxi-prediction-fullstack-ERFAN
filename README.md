@@ -75,6 +75,11 @@ The notebook `testing_models.ipynb` documents the original experiments. Its prev
 
 These are historical notebook results, not a claim that the current training script has been executed in every environment. Run the training script to generate fresh scores and metadata.
 
+## Verified outcomes
+
+- **Historical model comparison:** the original experiment notebook recorded RMSE values of **11.3966** for Random Forest, **16.9534** for Linear Regression, and **19.1344** for Decision Tree. These are historical notebook results, not a claim that a fresh run will reproduce the same scores.
+- **Automated verification:** the GitHub Actions workflow trains the model and runs the API test suite with `pytest`. [Run #22 completed successfully on 17 November 2026](https://github.com/erfantk25-lab/taxi-prediction-fullstack-ERFAN/actions/runs/44066430795).
+
 ## Tech stack
 
 - Python 3.13
